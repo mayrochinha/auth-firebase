@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/authContext";
 import { Signup } from "./pages/Signup";
 import { UserProfile } from "./pages/UserProfile";
+import { UpdateProfile } from "./pages/UpdateProfile";
 import { Login } from "./pages/Login";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/" element={<UserProfile />}></Route>
+          <Route path="/update-profile" element={<UpdateProfile />}></Route>
           <Route 
             path="*" 
             element={
