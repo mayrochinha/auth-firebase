@@ -3,6 +3,7 @@ import { AuthProvider } from "./context/authContext";
 import { Signup } from "./pages/Signup";
 import { UserProfile } from "./pages/UserProfile";
 import { UpdateProfile } from "./pages/UpdateProfile";
+import { ForgotPassword } from "./pages/ForgotPassword";
 import { Login } from "./pages/Login";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/" element={<UserProfile />}></Route>
           <Route path="/update-profile" element={<UpdateProfile />}></Route>
+          <Route path="/forgot-password" element={<ForgotPassword/>}></Route>
           <Route 
             path="*" 
             element={
