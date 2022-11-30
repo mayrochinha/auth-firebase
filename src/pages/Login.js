@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useAuth } from "../context/authContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Login = () => {
     const {signIn} = useAuth();
@@ -49,6 +49,16 @@ export const Login = () => {
                 />
                 <button disabled={loading} className="button-block" type="submit">Login</button>
             </form>
+
+            <div className="center">
+                <div>
+                    <p>Forgot password?<Link to="/forgot-password">Reset Password</Link></p>
+                    <p>Need a new account?<Link to="/SignUp">Create account</Link></p>
+                </div>
+            </div>
+
+
+
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 
 export const Signup = () => {
@@ -8,12 +9,16 @@ export const Signup = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [loading, setLoading] = useState(false);
    
     async function handleSubmit(element) {
         element.preventDefault();
 
+        setLoading(true);
+
         if (password.length < 6) {
             alert("Password deve ter no mínimo 6 caracteres.");
+            setLoading(false);
             return;
         }
 
@@ -27,6 +32,8 @@ export const Signup = () => {
         } catch (error) {
             alert("Ocorreu um erro ao tentar criar o usuário.");
         }
+
+        setLoading(false);
     }
 
     return (
@@ -54,8 +61,17 @@ export const Signup = () => {
                     onChange={(element) => setConfirmPassword(element.target.value)} 
                 />
 
-                <button className="button-block" type="submit">Signup</button>
+                <button disabled={loading} className="button-block" type="submit">Signup</button>
             </form>
+
+            <div className="center">
+                <div>
+                    <p>Have an account?<Link to="/login">Login</Link></p>
+                </div>
+            </div>
+
+
+
         </div>
     );
 };
